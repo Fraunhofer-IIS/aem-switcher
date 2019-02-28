@@ -1,8 +1,4 @@
-
+.gitignore
 .DS_Store
-.DS_Store?
-._*
- 
-
-
-
+.web-extension-id
+web-ext-artifacts/
