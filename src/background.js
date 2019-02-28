@@ -16,12 +16,7 @@ function getCurrentWindowTabs() {
     });
 }
 
-function lg(string,string2) {
-    console.log(string,string2);
-}
-
-function changeUrlAndOpenTab(baseUrlBefore, baseUrlAfter, myurl, tabs) {
-    myurl = myurl.replace(baseUrlBefore, baseUrlAfter);
+function openTab(myurl, tabs) {
     var tabfound = false;
     for (var tab of tabs) {
         if (tab.url == myurl) {
@@ -49,13 +44,24 @@ main = function() {
                 ressource.mandantenliste.forEach(mandant => {
                     var aemhomepage = mandant.aem + "de.html";
                     if (myurl.indexOf(mandant.live) == 0) {
-                        // Ausnahmefall Homepage
-                        if (myurl === mandant.live) {
-                            mandant.aem = aemhomepage;
+                        // Ausnahmefall Homepage live
+                        if (myurl == mandant.live) {
+                            myurl = aemhomepage;
                         }
-                        changeUrlAndOpenTab(mandant.live, mandant.aem, myurl, tabs);
+                        else {
+                            myurl = myurl.replace(mandant.live, mandant.aem);
+                        }
+                        openTab(myurl, tabs);
                     } else if (myurl.indexOf(mandant.aem) == 0) {
-                        changeUrlAndOpenTab(mandant.aem, mandant.live, myurl, tabs);
+                        //Aushamefall Homepage aem
+                        if (myurl == aemhomepage) {
+                            myurl = mandant.live;
+                        }
+                        else
+                        {
+                            myurl = myurl.replace(mandant.aem, mandant.live);
+                        }
+                        openTab(myurl, tabs);
                     }
                 });
             }
