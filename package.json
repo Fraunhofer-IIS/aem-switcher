@@ -1,0 +1,25 @@
+{
+  "name": "aem-switcher",
+  "version": "1.0.0",
+  "description": "to switch between AEM Web-CMS page editmode and Fraunhofer live webpage",
+  "main": "background.js",
+  "dependencies": {},
+  "devDependencies": {
+    "web-ext": "^2.9.3"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start:firefox": "web-ext run --source-dir ./src/",
+    "build": "web-ext build --source-dir ./src/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Fraunhofer-IIS/aem-switcher.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Fraunhofer-IIS/aem-switcher/issues"
+  },
+  "homepage": "https://github.com/Fraunhofer-IIS/aem-switcher#readme"
+}
