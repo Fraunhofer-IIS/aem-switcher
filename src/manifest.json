@@ -1,0 +1,43 @@
+{
+
+  "manifest_version": 2,
+  "name": "AEM Switcher",
+  "version": "1.9.2.3",
+  "description": "Switches URL between AEM CMS Edit Page and Live Website",
+  "homepage_url": "https://www.iis.fraunhofer.de",
+  
+  "icons": {
+    "128": "icons/AEM_Switcher_Icon_128.png",
+    "48": "icons/AEM_Switcher_Icon_48.png"
+
+  },
+  "permissions": [
+    "activeTab", 
+    "tabs",
+    "storage"
+  ],
+  "options_ui": {
+      "page": "options/options.html",
+      "browser_style": true
+ },
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "browser_action": {
+    "default_icon": "icons/AEM_Switcher_Icon_48.png",
+    "default_title": "Switch between AEM and Live Website"
+  },
+  "commands": {
+    "switch": {
+      "suggested_key": { "default": "F10" },
+      "description": "Switches URL between AEM CMS Edit Page and Live Website"
+    }
+  },
+  "applications": {
+      "gecko": {
+          "id": "aemswitcherID@iis.fraunhofer.de",
+          "strict_min_version": "58.0"
+      }
+  }
+
+}

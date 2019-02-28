@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <style>
+      .url-input {
+        width:86%;
+        margin:0.1em;
+        font-size: 1.1em;
+      }
+      .url-input-label {
+        font-size: 1.1em;
+        margin-right:1em;
+      }
+      .mandant-settings-pair {
+        font-size: 1.1em;
+        padding-left:0.4em;
+        margin-bottom:0.4em;
+        background-color: #eee;
+      }
+      .mandant-settings-pair button, #shortcut .button-save-shortcut {
+        width: 1.9em;
+        height: 1.9em;
+        text-align: center;
+      }
+      #shortcut{
+        background-color: #eee;
+        padding: 0.4em;
+      }
+      #add {
+        margin-top:2em;
+        margin-bottom:2em;
+        font-size: 1.2em;
+      }
+      #legende {
+        font-size: 1.1em;
+      }
+      button {
+        padding:0.1em;
+        margin:0.1em;
+        font-size: 1em;
+        
+      }
+      .listbutton {
+        padding:0.6em;
+        margin:0;
+        height:1.7em;
+        width:1.7em;
+        background-size: contain;
+        border: solid 1px #bbb;
+        
+      }
+      .button-delete {
+        background: url(./../img/del.svg) no-repeat;
+      }
+      .button-edit {
+        background: url(./../img/edit.svg) no-repeat;
+      }
+
+      /*!!! FEATURE HIDE !!!*/
+      #shortcut {
+        display: none;
+      }
+
+
+     </style>
+</head>
+
+<body>
+    <form id="newMandant">
+      <div>
+          <label class="url-input-label">Live URL:</label>
+          <input id="new-url-live" class="url-input" type="text" /> 
+          <br>
+          <label class="url-input-label">AEM URL:</label>
+          <input id="new-url-aem" class="url-input" type="text" />
+        
+          <button type="button">Neuen Mandanten hinzufügen</button>
+        </div>
+      </form>
+      <form id = "listMandant">
+        <h2><u>Liste eingetragener Mandanten</u></h2>
+        <div class="options-container">
+            <!-- itemcontainer -->
+            <template id="mandant-list-template">
+                <div class="mandant-settings-pair">
+                    <div class="mandant-first-line">
+                      <input class="url-input url-input-live" type="text" disabled title=""/>
+                      <button class="button listbutton button-edit" title="bearbeiten"> </button>
+                      <button class="button listbutton button-delete" title="löschen"> </button>
+                    </div>
+                    <div class="mandant-second-line" style="display: none;">
+                      <input class="url-input url-input-aem" type="text" disabled />
+                      <button class="button button-save" title="speichern">speichern</button>
+                    </div>
+                </div>
+            </template>
+        </div>
+        <p>(
+          <button class="button listbutton button-edit" title="bearbeiten"> </button>
+           = Mandant bearbeiten | 
+
+           <button class="button listbutton button-delete" title="löschen"> </button> 
+           = Mandant löschen )</p>
+        <br>
+        
+    </form>
+    <div id="shortcut">
+        <h3>Tastenkombination / Shortcut</h3>
+
+        <label>Keyboard shortcut</label>
+        <input type="text" class="url-input input-shortcut" readonly disabled />
+        <button class="button button-save-shortcut" title="speichern" style="display:none;">speichern</button>
+        <br><br>
+        <button class="button-set-shortcut">&#128295; Tastenkombination / Shortcut einstellen</button><br>
+        <button class="button-reset-shortcut">zurücksetzen</button>
+    </div>
+    
+    <script src="options.js"></script>
+</body>
+
+</html>
