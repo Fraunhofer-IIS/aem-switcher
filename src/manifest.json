@@ -2,7 +2,7 @@
 
   "manifest_version": 2,
   "name": "AEM Switcher",
-  "version": "1.9.3",
+  "version": "1.9.4",
   "description": "Switches URL between AEM CMS Edit Page and Live Website",
   "homepage_url": "https://www.iis.fraunhofer.de",
   
@@ -36,7 +36,7 @@
   "applications": {
       "gecko": {
           "id": "aemswitcherID@iis.fraunhofer.de",
-          "strict_min_version": "58.0"
+          "strict_min_version": "60.0"
       }
   }
 
