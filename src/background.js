@@ -42,11 +42,11 @@ main = function() {
         storageItem.then((ressource) => {
             if (ressource.mandantenliste && ressource.mandantenliste.length > 0) {
                 ressource.mandantenliste.forEach(mandant => {
-                    var aemhomepage = mandant.aem + "de.html";
+                    var homepageSuffix = "de.html";
                     if (myurl.indexOf(mandant.live) == 0) {
                         // Ausnahmefall Homepage live
                         if (myurl == mandant.live) {
-                            myurl = aemhomepage;
+                            myurl = mandant.aem + homepageSuffix;
                         }
                         else {
                             myurl = myurl.replace(mandant.live, mandant.aem);
@@ -54,12 +54,16 @@ main = function() {
                         openTab(myurl, tabs);
                     } else if (myurl.indexOf(mandant.aem) == 0) {
                         //Aushamefall Homepage aem
-                        if (myurl == aemhomepage) {
+                        if (myurl.substr(-homepageSuffix.length) == homepageSuffix) {
                             myurl = mandant.live;
                         }
                         else
                         {
                             myurl = myurl.replace(mandant.aem, mandant.live);
+                            //? Parameter abschneiden
+                            if (myurl.indexOf('?') > 0) {
+                                myurl = myurl.slice(0, myurl.indexOf('?'))
+                            }
                         }
                         openTab(myurl, tabs);
                     }

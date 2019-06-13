@@ -86,8 +86,8 @@ async function addMandant() {
 
         const newMandant = {
             id: getLastIndex(ressource.mandantenliste)+1,
-            live: document.querySelector("#new-url-live").value,
-            aem: document.querySelector("#new-url-aem").value
+            live: document.querySelector("#new-url-live").value.trim(),
+            aem: document.querySelector("#new-url-aem").value.trim()
         }
 
         if (ressource.mandantenliste) {
@@ -97,6 +97,10 @@ async function addMandant() {
         }
         browser.storage.sync.set(ressource);
     });
+
+    //Eingabefelder leeren
+    document.querySelector("#new-url-live").value='';
+    document.querySelector("#new-url-aem").value='';
 
     location.reload();
 }
@@ -160,7 +164,8 @@ async function handleSetShortcut(event) {
 
     document.querySelector(CLASS_SHORTCUT_DISPLAY).removeAttribute('disabled');
     document.querySelector(CLASS_BUTTON_SAVE_SHORTCUT).removeAttribute('style');
-    event.target.addEventListener('keydown', handleKeyInput);
+    document.querySelector(CLASS_SHORTCUT_DISPLAY).addEventListener('keydown', handleKeyInput);
+    document.querySelector(CLASS_SHORTCUT_DISPLAY).focus();
 }
 
 function handleKeyInput(event) {
