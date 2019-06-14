@@ -2,7 +2,7 @@
 
   "manifest_version": 2,
   "name": "AEM Switcher",
-  "version": "1.9.4",
+  "version": "1.9.5",
   "description": "Switches URL between AEM CMS Edit Page and Live Website",
   "homepage_url": "https://www.iis.fraunhofer.de",
   

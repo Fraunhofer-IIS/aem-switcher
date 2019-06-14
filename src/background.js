@@ -37,7 +37,7 @@ function openTab(myurl, tabs) {
 main = function() {
 
     callOnActiveTab((tab, tabs) => {
-        const myurl = tab.url;
+        var myurl = tab.url;
         const storageItem = browser.storage.sync.get(STORAGE_REF);
         storageItem.then((ressource) => {
             if (ressource.mandantenliste && ressource.mandantenliste.length > 0) {
